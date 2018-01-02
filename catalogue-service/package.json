@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nodemon server.js --exec babel-node",
     "test": "jest",
-    "jest": "jest --watch --verbose"
+    "jest": "jest --watch --verbose",
+    "lint": "standard"
   },
   "dependencies": {
     "express": "^4.16.2"
@@ -15,6 +16,12 @@
     "babel-preset-env": "^1.6.1",
     "jest": "^22.0.4",
     "nodemon": "^1.14.7",
+    "standard": "^10.0.3",
     "supertest": "^3.0.0"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   }
 }

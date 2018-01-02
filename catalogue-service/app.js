@@ -10,7 +10,7 @@ const localiseProducts = products => locationID => products.filter(product => {
 const getLocalisedProducts = localiseProducts(data.products)
 
 app.get('/products', (req, res) => res.json({
-  "products": getLocalisedProducts(req.query.locationID)
+  'products': getLocalisedProducts(req.query.locationID)
 }))
 
 export default app
