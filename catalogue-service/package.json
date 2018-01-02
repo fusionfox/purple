@@ -4,7 +4,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js --exec babel-node",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "jest": "jest --watch --verbose"
   },
   "dependencies": {
     "express": "^4.16.2"
@@ -12,6 +13,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "nodemon": "^1.14.7"
+    "jest": "^22.0.4",
+    "nodemon": "^1.14.7",
+    "supertest": "^3.0.0"
   }
 }

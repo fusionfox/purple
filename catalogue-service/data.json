@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "category": "News",
+      "name": "Sky News"
+    },
+    {
+      "category": "News",
+      "name": "Sky Sports News"
+    },
+    {
+      "category": "Sports",
+      "name": "Arsenal TV",
+      "locationID": "LONDON"
+    },
+    {
+      "category": "Sports",
+      "name": "Chelsea TV",
+      "locationID": "LONDON"
+    },
+    {
+      "category": "Sports",
+      "name": "Liverpool TV",
+      "locationID": "LIVERPOOL"
+    }
+  ]
+}
