@@ -3,15 +3,15 @@ import data from './data.json'
 
 const app = express()
 
-const localiseProducts = products => locationID => products.filter(product => {
-  return product.locationID === undefined || product.locationID === locationID
-})
+const filterProductByLocationID = locationID => product =>
+  product.locationID === undefined || product.locationID === locationID
 
-const getLocalisedProducts = localiseProducts(data.products)
+const getLocalisedProducts = (products, locationID) =>
+  products.filter(filterProductByLocationID(locationID))
 
 app.get('/products', (req, res) => res.json({
-  'products': getLocalisedProducts(req.query.locationID)
+  'products': getLocalisedProducts(data.products, req.query.locationID)
 }))
 
 export default app
-export { localiseProducts }
+export { filterProductByLocationID }
