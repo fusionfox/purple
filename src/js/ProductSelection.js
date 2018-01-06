@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import '../css/ProductSelection.css'
+import ProductList from './components/ProductList'
+
+const products = [
+  {id: '1', name: 'Number One'},
+  {id: '2', name: 'Number Two'}
+]
 
 class ProductSelection extends Component {
   render () {
@@ -9,7 +15,7 @@ class ProductSelection extends Component {
           <h1 className='ProductSelection-title'>Product Selection</h1>
         </header>
         <div className='ProductSelection-body'>
-          Hello World
+          <ProductList title='HelloWorld' products={products} />
         </div>
       </div>
     )

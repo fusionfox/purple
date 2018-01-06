@@ -1,0 +1,12 @@
+.ProductList {
+  margin: 10px;
+}
+
+.ProductList-title {
+  font-weight: bold
+}
+
+.ProductList-list {
+  list-style-type: none;
+  padding: 0;
+}

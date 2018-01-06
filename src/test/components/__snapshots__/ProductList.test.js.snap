@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList component Renders a list of products with a title 1`] = `
+<figure
+  className="ProductList"
+>
+  <figcaption
+    className="ProductList-title"
+  >
+    HelloWorld
+  </figcaption>
+  <ul
+    className="ProductList-list"
+  >
+    <li
+      className="ProductList-product"
+    >
+      Number One
+    </li>
+    <li
+      className="ProductList-product"
+    >
+      Number Two
+    </li>
+  </ul>
+</figure>
+`;
