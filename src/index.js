@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './js/App'
+import ProductSelection from './js/ProductSelection'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<ProductSelection />, document.getElementById('root'))
