@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../css/components/SelectableItem.css'
 
-const SelectableItem = (props) => {
+const SelectableItem = props => {
   return (
     <label className='SelectableItem-label'>
       <input
