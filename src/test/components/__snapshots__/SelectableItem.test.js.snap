@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectableItem component Renders a checkbox input with a label 1`] = `
+<label
+  className="SelectableItem-label"
+>
+  <input
+    className="SelectableItem-item"
+    name="product"
+    type="checkbox"
+    value="product1"
+  />
+  Product Name
+</label>
+`;

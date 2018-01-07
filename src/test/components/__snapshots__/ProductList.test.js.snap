@@ -15,12 +15,32 @@ exports[`ProductList component Renders a list of products with a title 1`] = `
     <li
       className="ProductList-product"
     >
-      Number One
+      <label
+        className="SelectableItem-label"
+      >
+        <input
+          className="SelectableItem-item"
+          name="product"
+          type="checkbox"
+          value="pr1"
+        />
+        Number One
+      </label>
     </li>
     <li
       className="ProductList-product"
     >
-      Number Two
+      <label
+        className="SelectableItem-label"
+      >
+        <input
+          className="SelectableItem-item"
+          name="product"
+          type="checkbox"
+          value="pr2"
+        />
+        Number Two
+      </label>
     </li>
   </ul>
 </figure>

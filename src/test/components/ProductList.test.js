@@ -3,8 +3,8 @@ import renderer from 'react-test-renderer'
 import ProductList from '../../js/components/ProductList'
 
 const products = [
-  {id: '1', name: 'Number One'},
-  {id: '2', name: 'Number Two'}
+  {id: 'pr1', name: 'Number One'},
+  {id: 'pr2', name: 'Number Two'}
 ]
 
 describe('ProductList component', () => {

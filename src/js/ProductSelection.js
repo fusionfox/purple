@@ -3,8 +3,8 @@ import '../css/ProductSelection.css'
 import ProductList from './components/ProductList'
 
 const products = [
-  {id: '1', name: 'Number One'},
-  {id: '2', name: 'Number Two'}
+  {id: 'pr1', name: 'Number One'},
+  {id: 'pr2', name: 'Number Two'}
 ]
 
 class ProductSelection extends Component {
