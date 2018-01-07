@@ -5,7 +5,11 @@ import SelectableItem from './SelectableItem'
 const ProductList = (props) => {
   let products = props.products.map((product) => {
     return <li key={product.id} className='ProductList-product'>
-      <SelectableItem name={product.name} id={product.id} />
+      <SelectableItem
+        name={product.name}
+        id={product.id}
+        handleItemSelection={props.handleProductSelection}
+      />
     </li>
   })
 

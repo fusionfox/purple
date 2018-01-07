@@ -10,7 +10,11 @@ const products = [
 describe('ProductList component', () => {
   it('Renders a list of products with a title', () => {
     const component = renderer.create(
-      <ProductList title='HelloWorld' products={products} />
+      <ProductList
+        title='HelloWorld'
+        products={products}
+        handleProductSelection={() => null}
+      />
     )
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()

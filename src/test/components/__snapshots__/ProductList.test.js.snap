@@ -21,6 +21,7 @@ exports[`ProductList component Renders a list of products with a title 1`] = `
         <input
           className="SelectableItem-item"
           name="product"
+          onChange={[Function]}
           type="checkbox"
           value="pr1"
         />
@@ -36,6 +37,7 @@ exports[`ProductList component Renders a list of products with a title 1`] = `
         <input
           className="SelectableItem-item"
           name="product"
+          onChange={[Function]}
           type="checkbox"
           value="pr2"
         />
