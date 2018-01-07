@@ -1,0 +1,16 @@
+.Basket {
+  margin: 10px;
+}
+
+.Basket-title {
+  font-weight: bold
+}
+
+.Basket-list {
+  padding: 0;
+}
+
+.Basket-button {
+  padding: 20px 40px;
+  font-size: 15px;
+}

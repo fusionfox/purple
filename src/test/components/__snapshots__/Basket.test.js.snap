@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basket component Renders a list of products with the title "Basket" and a checkout button 1`] = `
+<figure
+  className="Basket"
+>
+  <figcaption
+    className="Basket-title"
+  >
+    Basket
+  </figcaption>
+  <ul
+    className="Basket-list"
+  >
+    <li
+      className="Basket-product"
+    >
+      Number One
+    </li>
+    <li
+      className="Basket-product"
+    >
+      Number Two
+    </li>
+  </ul>
+  <button
+    className="Basket-button"
+    onClick={[Function]}
+  >
+    Checkout
+  </button>
+</figure>
+`;

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../css/ProductSelection.css'
 import ProductList from './components/ProductList'
+import Basket from './components/Basket'
 
 import { addProduct, removeProduct } from './actions/productsActions'
 
@@ -11,6 +12,10 @@ const handleProductSelection = dispatch => e => {
   } else {
     dispatch(removeProduct(e.target.value))
   }
+}
+
+const handleCheckout = () => {
+  console.log('Checkout!')
 }
 
 class ProductSelection extends Component {
@@ -26,6 +31,10 @@ class ProductSelection extends Component {
             products={this.props.products}
             handleProductSelection={handleProductSelection(this.props.dispatch)}
           />
+          <Basket
+            products={this.props.basket}
+            handleCheckout={handleCheckout}
+          />
         </div>
       </div>
     )
@@ -33,7 +42,8 @@ class ProductSelection extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  products: state.products.productList
+  products: state.products.productList,
+  basket: state.products.basket
 })
 
 export default connect(mapStateToProps)(ProductSelection)

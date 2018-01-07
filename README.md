@@ -10,3 +10,6 @@
 - Contract testing to ensure that the service complies with the agreed-upon schema
 - Setup Docker to run this and any future services
 - GraphQL would be nice, probably overkill though
+
+##### Product Selection Client
+- Behavioural tests using CasperJS would automate testing of user journeys
