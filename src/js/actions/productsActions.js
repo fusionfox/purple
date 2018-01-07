@@ -1,6 +1,6 @@
 export function addProduct (productId) {
   return {
-    type: 'SELECT_PRODUCT',
+    type: 'ADD_PRODUCT',
     payload: {
       productId
     }

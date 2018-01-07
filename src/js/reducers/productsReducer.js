@@ -8,7 +8,7 @@ const initialState = {
 
 export default function reducer (state = initialState, action) {
   switch (action.type) {
-    case 'SELECT_PRODUCT': {
+    case 'ADD_PRODUCT': {
       const selectedProduct = state.productList.find(product =>
         product.id === action.payload.productId)
 

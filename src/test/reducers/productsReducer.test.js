@@ -1,7 +1,7 @@
 import productsReducer from '../../js/reducers/productsReducer'
 
 describe('productsReducer', () => {
-  const initialState = {
+  const stateWithEmptyBasket = {
     productList: [
       {id: 'pr1', name: 'Number One'},
       {id: 'pr2', name: 'Number Two'}
@@ -15,28 +15,26 @@ describe('productsReducer', () => {
     }
 
     it('State is unchanged', () => {
-      expect(productsReducer(initialState, action)).toEqual(initialState)
+      expect(productsReducer(stateWithEmptyBasket, action)).toEqual(stateWithEmptyBasket)
     })
   })
 
-  describe('SELECT_PRODUCT action', () => {
+  describe('ADD_PRODUCT action', () => {
     const action = {
-      type: 'SELECT_PRODUCT',
+      type: 'ADD_PRODUCT',
       payload: {}
     }
 
     it('If product found in list, is added to basket', () => {
       action.payload.productId = 'pr1'
-
-      expect(productsReducer(initialState, action).basket).toEqual(
+      expect(productsReducer(stateWithEmptyBasket, action).basket).toEqual(
         [{id: 'pr1', name: 'Number One'}]
       )
     })
 
     it('If product not found in list, state is unchanged', () => {
       action.payload.productId = 'pr3'
-
-      expect(productsReducer(initialState, action)).toEqual(initialState)
+      expect(productsReducer(stateWithEmptyBasket, action)).toEqual(stateWithEmptyBasket)
     })
   })
 })
