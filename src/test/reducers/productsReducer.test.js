@@ -9,6 +9,16 @@ describe('productsReducer', () => {
     basket: []
   }
 
+  const stateWithItemsInBasket = {
+    productList: [
+      {id: 'pr1', name: 'Number One'},
+      {id: 'pr2', name: 'Number Two'}
+    ],
+    basket: [
+      {id: 'pr1', name: 'Number One'}
+    ]
+  }
+
   describe('Invalid action', () => {
     const action = {
       type: 'INVALID'
@@ -35,6 +45,23 @@ describe('productsReducer', () => {
     it('If product not found in list, state is unchanged', () => {
       action.payload.productId = 'pr3'
       expect(productsReducer(stateWithEmptyBasket, action)).toEqual(stateWithEmptyBasket)
+    })
+  })
+
+  describe('REMOVE_PRODUCT action', () => {
+    const action = {
+      type: 'REMOVE_PRODUCT',
+      payload: {}
+    }
+
+    it('If product found in basket, is removed', () => {
+      action.payload.productId = 'pr1'
+      expect(productsReducer(stateWithItemsInBasket, action).basket).toEqual([])
+    })
+
+    it('If product not found in basket, state is unchanged', () => {
+      action.payload.productId = 'pr3'
+      expect(productsReducer(stateWithItemsInBasket, action)).toEqual(stateWithItemsInBasket)
     })
   })
 })

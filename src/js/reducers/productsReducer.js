@@ -17,6 +17,12 @@ export default function reducer (state = initialState, action) {
         basket: selectedProduct ? [...state.basket, selectedProduct] : state.basket
       }
     }
+    case 'REMOVE_PRODUCT': {
+      return {
+        ...state,
+        basket: state.basket.filter(product => product.id !== action.payload.productId)
+      }
+    }
     default: return state
   }
 }

@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import '../css/ProductSelection.css'
 import ProductList from './components/ProductList'
 
-import { addProduct } from './actions/productsActions'
+import { addProduct, removeProduct } from './actions/productsActions'
 
 const handleProductSelection = dispatch => e => {
   if (e.target.checked) {
     dispatch(addProduct(e.target.value))
   } else {
-    console.log(`${e.target.value} de-selected`)
+    dispatch(removeProduct(e.target.value))
   }
 }
 

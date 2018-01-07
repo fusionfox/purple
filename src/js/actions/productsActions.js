@@ -6,3 +6,12 @@ export function addProduct (productId) {
     }
   }
 }
+
+export function removeProduct (productId) {
+  return {
+    type: 'REMOVE_PRODUCT',
+    payload: {
+      productId
+    }
+  }
+}
