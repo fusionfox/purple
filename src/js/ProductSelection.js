@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import '../css/ProductSelection.css'
 import ProductList from './components/ProductList'
-
-const products = [
-  {id: 'pr1', name: 'Number One'},
-  {id: 'pr2', name: 'Number Two'}
-]
 
 class ProductSelection extends Component {
   render () {
@@ -15,11 +11,15 @@ class ProductSelection extends Component {
           <h1 className='ProductSelection-title'>Product Selection</h1>
         </header>
         <div className='ProductSelection-body'>
-          <ProductList title='HelloWorld' products={products} />
+          <ProductList title='HelloWorld' products={this.props.products} />
         </div>
       </div>
     )
   }
 }
 
-export default ProductSelection
+const mapStateToProps = (state) => ({
+  products: state.products.productList
+})
+
+export default connect(mapStateToProps)(ProductSelection)
