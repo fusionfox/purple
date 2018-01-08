@@ -2,7 +2,7 @@ import userReducer from '../../js/reducers/userReducer'
 
 describe('userReducer', () => {
   const initialState = {
-    customerID: '000001',
+    customerID: undefined,
     locationID: undefined,
     error: null
   }
@@ -17,7 +17,12 @@ describe('userReducer', () => {
     })
   })
 
-  describe('When fetching data', () => {
+  describe('When getting locationID', () => {
+    const stateWithCustomerID = {
+      ...initialState,
+      customerID: '000001'
+    }
+
     describe('Request is successful', () => {
       const action = {
         type: 'GET_LOCATIONID_FULFILLED',
@@ -25,7 +30,7 @@ describe('userReducer', () => {
       }
 
       it('Stores the locationID in state', () => {
-        expect(userReducer(initialState, action)).toEqual({
+        expect(userReducer(stateWithCustomerID, action)).toEqual({
           customerID: '000001',
           locationID: 'LONDON',
           error: null
@@ -39,7 +44,7 @@ describe('userReducer', () => {
         payload: 'error'
       }
 
-      expect(userReducer(initialState, action)).toEqual({
+      expect(userReducer(stateWithCustomerID, action)).toEqual({
         customerID: '000001',
         locationID: undefined,
         error: 'error'

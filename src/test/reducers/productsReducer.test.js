@@ -15,15 +15,7 @@ describe('productsReducer', () => {
   }
 
   const stateWithItemsInBasket = {
-    productList: {
-      sports: [
-        {id: 'sp1', category: 'sports', name: 'Sport One'},
-        {id: 'sp2', category: 'sports', name: 'Sport Two'}
-      ],
-      news: [
-        {id: 'nw1', category: 'news', name: 'News One'}
-      ]
-    },
+    ...stateWithEmptyBasket,
     basket: [
       {id: 'sp1', category: 'sports', name: 'Sport One'}
     ]
@@ -46,23 +38,29 @@ describe('productsReducer', () => {
     }
 
     it('If product found in list, is added to basket', () => {
-      action.payload = {
-        productId: 'sp1',
-        category: 'sports'
+      const actionWithValidPayload = {
+        ...action,
+        payload: {
+          productId: 'sp1',
+          category: 'sports'
+        }
       }
 
-      expect(productsReducer(stateWithEmptyBasket, action).basket).toEqual(
+      expect(productsReducer(stateWithEmptyBasket, actionWithValidPayload).basket).toEqual(
         [{id: 'sp1', category: 'sports', name: 'Sport One'}]
       )
     })
 
     it('If product not found in list, state is unchanged', () => {
-      action.payload = {
-        productId: 'nw2',
-        category: 'news'
+      const actionWithInvalidPayload = {
+        ...action,
+        payload: {
+          productId: 'nw2',
+          category: 'news'
+        }
       }
 
-      expect(productsReducer(stateWithEmptyBasket, action)).toEqual(stateWithEmptyBasket)
+      expect(productsReducer(stateWithEmptyBasket, actionWithInvalidPayload)).toEqual(stateWithEmptyBasket)
     })
   })
 
@@ -73,21 +71,27 @@ describe('productsReducer', () => {
     }
 
     it('If product found in basket, is removed', () => {
-      action.payload = {
-        productId: 'sp1',
-        category: 'sports'
+      const actionWithValidPayload = {
+        ...action,
+        payload: {
+          productId: 'sp1',
+          category: 'sports'
+        }
       }
 
-      expect(productsReducer(stateWithItemsInBasket, action).basket).toEqual([])
+      expect(productsReducer(stateWithItemsInBasket, actionWithValidPayload).basket).toEqual([])
     })
 
     it('If product not found in basket, state is unchanged', () => {
-      action.payload = {
-        productId: 'nw1',
-        category: 'news'
+      const actionWithInvalidPayload = {
+        ...action,
+        payload: {
+          productId: 'nw1',
+          category: 'news'
+        }
       }
 
-      expect(productsReducer(stateWithItemsInBasket, action)).toEqual(stateWithItemsInBasket)
+      expect(productsReducer(stateWithItemsInBasket, actionWithInvalidPayload)).toEqual(stateWithItemsInBasket)
     })
   })
 
@@ -105,12 +109,15 @@ describe('productsReducer', () => {
       }
 
       it('Returns only Sports products', () => {
-        action.payload.data.products = [
-          {id: 'sp1', category: 'sports', name: 'Sport One'},
-          {id: 'sp2', category: 'sports', name: 'Sport Two'}
-        ]
+        const actionWithOnlySportProducts = {
+          ...action,
+          payload: {data: {products: [
+                {id: 'sp1', category: 'sports', name: 'Sport One'},
+                {id: 'sp2', category: 'sports', name: 'Sport Two'}
+          ]}}
+        }
 
-        expect(productsReducer(initialState, action)).toEqual({
+        expect(productsReducer(initialState, actionWithOnlySportProducts)).toEqual({
           productList: {
             sports: [
               {id: 'sp1', category: 'sports', name: 'Sport One'},
@@ -124,12 +131,15 @@ describe('productsReducer', () => {
       })
 
       it('Returns only News products', () => {
-        action.payload.data.products = [
-          {id: 'nw1', category: 'news', name: 'News One'},
-          {id: 'nw2', category: 'news', name: 'News Two'}
-        ]
+        const actionWithOnlyNewsProducts = {
+          ...action,
+          payload: {data: {products: [
+            {id: 'nw1', category: 'news', name: 'News One'},
+            {id: 'nw2', category: 'news', name: 'News Two'}
+          ]}}
+        }
 
-        expect(productsReducer(initialState, action)).toEqual({
+        expect(productsReducer(initialState, actionWithOnlyNewsProducts)).toEqual({
           productList: {
             sports: [],
             news: [
@@ -143,13 +153,16 @@ describe('productsReducer', () => {
       })
 
       it('Returns both Sports and News products', () => {
-        action.payload.data.products = [
-          {id: 'sp1', category: 'sports', name: 'Sport One'},
-          {id: 'sp2', category: 'sports', name: 'Sport Two'},
-          {id: 'nw1', category: 'news', name: 'News One'}
-        ]
+        const actionWithSportsAndNewsProducts = {
+          ...action,
+          payload: {data: {products: [
+            {id: 'sp1', category: 'sports', name: 'Sport One'},
+            {id: 'sp2', category: 'sports', name: 'Sport Two'},
+            {id: 'nw1', category: 'news', name: 'News One'}
+          ]}}
+        }
 
-        expect(productsReducer(initialState, action)).toEqual({
+        expect(productsReducer(initialState, actionWithSportsAndNewsProducts)).toEqual({
           productList: {
             sports: [
               {id: 'sp1', category: 'sports', name: 'Sport One'},
