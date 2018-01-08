@@ -47,3 +47,21 @@ exports[`ProductList component Renders a list of products with a title 1`] = `
   </ul>
 </figure>
 `;
+
+exports[`ProductList component Renders a message if given no products 1`] = `
+<figure
+  className="ProductList"
+>
+  <figcaption
+    className="ProductList-title"
+  >
+    HelloWorld
+  </figcaption>
+  <ul
+    className="ProductList-list"
+  />
+  <span>
+    No Products Available
+  </span>
+</figure>
+`;

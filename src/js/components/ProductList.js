@@ -13,12 +13,21 @@ const ProductList = props => {
     </li>
   })
 
+  const EmptyListMessage = (props) => {
+    if (products.length === 0) {
+      return <span>No Products Available</span>
+    } else {
+      return null
+    }
+  }
+
   return (
     <figure className='ProductList'>
       <figcaption className='ProductList-title'>{props.title}</figcaption>
       <ul className='ProductList-list'>
         {products}
       </ul>
+      <EmptyListMessage />
     </figure>
   )
 }
