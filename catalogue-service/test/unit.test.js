@@ -1,17 +1,20 @@
 import { filterProductByLocationID } from './../app'
 
 const productWithoutLocation = {
+  'id': '1',
   'category': 'category_1',
   'name': 'product_without_location'
 }
 
 const productWithLocation1 = {
+  'id': '2',
   'category': 'category_1',
   'name': 'product_with_location1',
   'locationID': 'LOCATION1'
 }
 
 const productWithLocation2 = {
+  'id': '3',
   'category': 'category_1',
   'name': 'product_with_location2',
   'locationID': 'LOCATION2'
