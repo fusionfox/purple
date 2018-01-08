@@ -23,12 +23,16 @@ exports[`Basket component Renders a list of products with the title "Basket" and
       Number Two
     </li>
   </ul>
-  <button
-    className="Basket-button"
+  <a
+    href="/checkout"
     onClick={[Function]}
   >
-    Checkout
-  </button>
+    <button
+      className="Basket-button"
+    >
+      Checkout
+    </button>
+  </a>
 </figure>
 `;
 
@@ -47,11 +51,15 @@ exports[`Basket component Renders a message if given no products 1`] = `
   <p>
     Basket is empty
   </p>
-  <button
-    className="Basket-button"
+  <a
+    href="/checkout"
     onClick={[Function]}
   >
-    Checkout
-  </button>
+    <button
+      className="Basket-button"
+    >
+      Checkout
+    </button>
+  </a>
 </figure>
 `;

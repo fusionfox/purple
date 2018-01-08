@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../../css/components/Basket.css'
 
 const Basket = props => {
@@ -21,7 +22,9 @@ const Basket = props => {
         {products}
       </ul>
       <EmptyBasketMessage />
-      <button className='Basket-button' onClick={props.handleCheckout}>Checkout</button>
+      <Link to={'/checkout'}>
+        <button className='Basket-button'>Checkout</button>
+      </Link>
     </figure>
   )
 }

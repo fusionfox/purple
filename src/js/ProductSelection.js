@@ -15,10 +15,6 @@ const handleProductSelection = (dispatch, category) => e => {
   }
 }
 
-const handleCheckout = () => {
-  console.log('Checkout!')
-}
-
 class ProductSelection extends Component {
   componentDidMount () {
     this.props.dispatch(getCustomerID())
@@ -45,7 +41,6 @@ class ProductSelection extends Component {
           />
           <Basket
             products={this.props.basket}
-            handleCheckout={handleCheckout}
           />
         </div>
       </div>
