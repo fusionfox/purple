@@ -2,29 +2,29 @@
   "products": [
     {
       "id": "201",
-      "category": "News",
+      "category": "news",
       "name": "Sky News"
     },
     {
       "id": "202",
-      "category": "News",
+      "category": "news",
       "name": "Sky Sports News"
     },
     {
       "id": "301",
-      "category": "Sports",
+      "category": "sports",
       "name": "Arsenal TV",
       "locationID": "LONDON"
     },
     {
       "id": "302",
-      "category": "Sports",
+      "category": "sports",
       "name": "Chelsea TV",
       "locationID": "LONDON"
     },
     {
-      "id": "303", 
-      "category": "Sports",
+      "id": "303",
+      "category": "sports",
       "name": "Liverpool TV",
       "locationID": "LIVERPOOL"
     }

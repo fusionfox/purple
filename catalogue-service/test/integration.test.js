@@ -7,8 +7,8 @@ describe('When no locationID is given', () => {
       expect(response.statusCode).toBe(200)
       expect(response.body).toEqual({
         'products': [
-          {id: '201', 'category': 'News', 'name': 'Sky News'},
-          {id: '202', 'category': 'News', 'name': 'Sky Sports News'}
+          {id: '201', 'category': 'news', 'name': 'Sky News'},
+          {id: '202', 'category': 'news', 'name': 'Sky Sports News'}
         ]
       })
     })
@@ -21,8 +21,8 @@ describe('When a non-matching locationID is given', () => {
       expect(response.statusCode).toBe(200)
       expect(response.body).toEqual({
         'products': [
-          {id: '201', 'category': 'News', 'name': 'Sky News'},
-          {id: '202', 'category': 'News', 'name': 'Sky Sports News'}
+          {id: '201', 'category': 'news', 'name': 'Sky News'},
+          {id: '202', 'category': 'news', 'name': 'Sky Sports News'}
         ]
       })
     })
@@ -36,10 +36,10 @@ describe('When a matching locationID is given', () => {
         expect(response.statusCode).toBe(200)
         expect(response.body).toEqual({
           'products': [
-            {id: '201', 'category': 'News', 'name': 'Sky News'},
-            {id: '202', 'category': 'News', 'name': 'Sky Sports News'},
-            {id: '301', 'category': 'Sports', 'name': 'Arsenal TV', 'locationID': 'LONDON'},
-            {id: '302', 'category': 'Sports', 'name': 'Chelsea TV', 'locationID': 'LONDON'}
+            {id: '201', 'category': 'news', 'name': 'Sky News'},
+            {id: '202', 'category': 'news', 'name': 'Sky Sports News'},
+            {id: '301', 'category': 'sports', 'name': 'Arsenal TV', 'locationID': 'LONDON'},
+            {id: '302', 'category': 'sports', 'name': 'Chelsea TV', 'locationID': 'LONDON'}
           ]
         })
       })
@@ -50,9 +50,9 @@ describe('When a matching locationID is given', () => {
         expect(response.statusCode).toBe(200)
         expect(response.body).toEqual({
           'products': [
-            {id: '201', 'category': 'News', 'name': 'Sky News'},
-            {id: '202', 'category': 'News', 'name': 'Sky Sports News'},
-            {id: '303', 'category': 'Sports', 'name': 'Liverpool TV', 'locationID': 'LIVERPOOL'}
+            {id: '201', 'category': 'news', 'name': 'Sky News'},
+            {id: '202', 'category': 'news', 'name': 'Sky Sports News'},
+            {id: '303', 'category': 'sports', 'name': 'Liverpool TV', 'locationID': 'LIVERPOOL'}
           ]
         })
       })
