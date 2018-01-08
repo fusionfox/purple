@@ -8,6 +8,7 @@ describe('SelectableItem component', () => {
       <SelectableItem
         name='Product Name'
         id='product1'
+        selected={() => false}
         handleItemSelection={() => null}
       />
     )

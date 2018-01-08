@@ -8,6 +8,7 @@ const ProductList = props => {
       <SelectableItem
         name={product.name}
         id={product.id}
+        selected={props.isProductSelected}
         handleItemSelection={props.handleProductSelection}
       />
     </li>

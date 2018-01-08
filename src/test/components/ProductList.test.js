@@ -12,6 +12,7 @@ describe('ProductList component', () => {
           {id: 'pr2', name: 'Number Two'}
         ]}
         handleProductSelection={() => null}
+        isProductSelected={() => false}
       />
     )
     let tree = component.toJSON()
@@ -24,6 +25,7 @@ describe('ProductList component', () => {
         title='HelloWorld'
         products={[]}
         handleProductSelection={() => null}
+        isProductSelected={() => false}
       />
     )
     let tree = component.toJSON()

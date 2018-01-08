@@ -5,6 +5,7 @@ exports[`SelectableItem component Renders a checkbox input with a label 1`] = `
   className="SelectableItem-label"
 >
   <input
+    checked={false}
     className="SelectableItem-item"
     name="product"
     onChange={[Function]}

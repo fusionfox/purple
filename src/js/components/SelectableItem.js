@@ -9,6 +9,7 @@ const SelectableItem = props => {
         type='checkbox'
         name='product'
         value={props.id}
+        checked={props.selected(props.id)}
         onChange={props.handleItemSelection}
       />
       {props.name}

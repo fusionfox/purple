@@ -15,6 +15,8 @@ const handleProductSelection = (dispatch, category) => e => {
   }
 }
 
+const isProductInList = products => id => products.find(product => product.id === id)
+
 class ProductSelection extends Component {
   componentDidMount () {
     this.props.dispatch(getCustomerID())
@@ -32,11 +34,13 @@ class ProductSelection extends Component {
           <ProductList
             title='Sports'
             products={this.props.products.sports}
+            isProductSelected={isProductInList(this.props.basket)}
             handleProductSelection={handleProductSelection(this.props.dispatch, 'sports')}
           />
           <ProductList
             title='News'
             products={this.props.products.news}
+            isProductSelected={isProductInList(this.props.basket)}
             handleProductSelection={handleProductSelection(this.props.dispatch, 'news')}
           />
           <Basket

@@ -19,6 +19,7 @@ exports[`ProductList component Renders a list of products with a title 1`] = `
         className="SelectableItem-label"
       >
         <input
+          checked={false}
           className="SelectableItem-item"
           name="product"
           onChange={[Function]}
@@ -35,6 +36,7 @@ exports[`ProductList component Renders a list of products with a title 1`] = `
         className="SelectableItem-label"
       >
         <input
+          checked={false}
           className="SelectableItem-item"
           name="product"
           onChange={[Function]}
