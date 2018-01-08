@@ -17,6 +17,36 @@ describe('userReducer', () => {
     })
   })
 
+  describe('When getting customerID', () => {
+    describe('Successful', () => {
+      const action = {
+        type: 'GET_CUSTOMERID_FULFILLED',
+        payload: '000001'
+      }
+
+      it('Stores the locationID in state', () => {
+        expect(userReducer(initialState, action)).toEqual({
+          customerID: '000001',
+          locationID: undefined,
+          error: null
+        })
+      })
+    })
+
+    describe('Unsuccessful', () => {
+      const action = {
+        type: 'GET_CUSTOMERID_REJECTED',
+        payload: 'error'
+      }
+
+      expect(userReducer(initialState, action)).toEqual({
+        customerID: undefined,
+        locationID: undefined,
+        error: 'error'
+      })
+    })
+  })
+
   describe('When getting locationID', () => {
     const stateWithCustomerID = {
       ...initialState,
