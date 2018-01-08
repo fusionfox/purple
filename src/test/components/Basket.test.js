@@ -18,4 +18,15 @@ describe('Basket component', () => {
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
+
+  it('Renders a message if given no products', () => {
+    const component = renderer.create(
+      <Basket
+        products={[]}
+        handleCheckout={() => null}
+      />
+    )
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

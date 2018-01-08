@@ -60,8 +60,8 @@ exports[`ProductList component Renders a message if given no products 1`] = `
   <ul
     className="ProductList-list"
   />
-  <span>
+  <p>
     No Products Available
-  </span>
+  </p>
 </figure>
 `;

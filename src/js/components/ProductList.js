@@ -13,9 +13,9 @@ const ProductList = props => {
     </li>
   })
 
-  const EmptyListMessage = (props) => {
+  const EmptyListMessage = props => {
     if (products.length === 0) {
-      return <span>No Products Available</span>
+      return <p>No Products Available</p>
     } else {
       return null
     }
