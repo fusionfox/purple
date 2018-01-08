@@ -2,20 +2,30 @@ import productsReducer from '../../js/reducers/productsReducer'
 
 describe('productsReducer', () => {
   const stateWithEmptyBasket = {
-    productList: [
-      {id: 'pr1', name: 'Number One'},
-      {id: 'pr2', name: 'Number Two'}
-    ],
+    productList: {
+      sports: [
+        {id: 'sp1', category: 'sports', name: 'Sport One'},
+        {id: 'sp2', category: 'sports', name: 'Sport Two'}
+      ],
+      news: [
+        {id: 'nw1', category: 'news', name: 'News One'}
+      ]
+    },
     basket: []
   }
 
   const stateWithItemsInBasket = {
-    productList: [
-      {id: 'pr1', name: 'Number One'},
-      {id: 'pr2', name: 'Number Two'}
-    ],
+    productList: {
+      sports: [
+        {id: 'sp1', category: 'sports', name: 'Sport One'},
+        {id: 'sp2', category: 'sports', name: 'Sport Two'}
+      ],
+      news: [
+        {id: 'nw1', category: 'news', name: 'News One'}
+      ]
+    },
     basket: [
-      {id: 'pr1', name: 'Number One'}
+      {id: 'sp1', category: 'sports', name: 'Sport One'}
     ]
   }
 
@@ -36,14 +46,22 @@ describe('productsReducer', () => {
     }
 
     it('If product found in list, is added to basket', () => {
-      action.payload.productId = 'pr1'
+      action.payload = {
+        productId: 'sp1',
+        category: 'sports'
+      }
+
       expect(productsReducer(stateWithEmptyBasket, action).basket).toEqual(
-        [{id: 'pr1', name: 'Number One'}]
+        [{id: 'sp1', category: 'sports', name: 'Sport One'}]
       )
     })
 
     it('If product not found in list, state is unchanged', () => {
-      action.payload.productId = 'pr3'
+      action.payload = {
+        productId: 'nw2',
+        category: 'news'
+      }
+
       expect(productsReducer(stateWithEmptyBasket, action)).toEqual(stateWithEmptyBasket)
     })
   })
@@ -55,12 +73,20 @@ describe('productsReducer', () => {
     }
 
     it('If product found in basket, is removed', () => {
-      action.payload.productId = 'pr1'
+      action.payload = {
+        productId: 'sp1',
+        category: 'sports'
+      }
+
       expect(productsReducer(stateWithItemsInBasket, action).basket).toEqual([])
     })
 
     it('If product not found in basket, state is unchanged', () => {
-      action.payload.productId = 'pr3'
+      action.payload = {
+        productId: 'nw1',
+        category: 'news'
+      }
+
       expect(productsReducer(stateWithItemsInBasket, action)).toEqual(stateWithItemsInBasket)
     })
   })
@@ -72,16 +98,70 @@ describe('productsReducer', () => {
       error: null
     }
 
-    it('Request is successful', () => {
+    describe('Request is successful', () => {
       const action = {
         type: 'FETCH_PRODUCTS_FULFILLED',
-        payload: {data: {products: [{id: 'pr1', name: 'Number One'}]}}
+        payload: {data: {products: []}}
       }
 
-      expect(productsReducer(initialState, action)).toEqual({
-        productList: [{id: 'pr1', name: 'Number One'}],
-        basket: [],
-        error: null
+      it('Returns only Sports products', () => {
+        action.payload.data.products = [
+          {id: 'sp1', category: 'sports', name: 'Sport One'},
+          {id: 'sp2', category: 'sports', name: 'Sport Two'}
+        ]
+
+        expect(productsReducer(initialState, action)).toEqual({
+          productList: {
+            sports: [
+              {id: 'sp1', category: 'sports', name: 'Sport One'},
+              {id: 'sp2', category: 'sports', name: 'Sport Two'}
+            ],
+            news: []
+          },
+          basket: [],
+          error: null
+        })
+      })
+
+      it('Returns only News products', () => {
+        action.payload.data.products = [
+          {id: 'nw1', category: 'news', name: 'News One'},
+          {id: 'nw2', category: 'news', name: 'News Two'}
+        ]
+
+        expect(productsReducer(initialState, action)).toEqual({
+          productList: {
+            sports: [],
+            news: [
+              {id: 'nw1', category: 'news', name: 'News One'},
+              {id: 'nw2', category: 'news', name: 'News Two'}
+            ]
+          },
+          basket: [],
+          error: null
+        })
+      })
+
+      it('Returns both Sports and News products', () => {
+        action.payload.data.products = [
+          {id: 'sp1', category: 'sports', name: 'Sport One'},
+          {id: 'sp2', category: 'sports', name: 'Sport Two'},
+          {id: 'nw1', category: 'news', name: 'News One'}
+        ]
+
+        expect(productsReducer(initialState, action)).toEqual({
+          productList: {
+            sports: [
+              {id: 'sp1', category: 'sports', name: 'Sport One'},
+              {id: 'sp2', category: 'sports', name: 'Sport Two'}
+            ],
+            news: [
+              {id: 'nw1', category: 'news', name: 'News One'}
+            ]
+          },
+          basket: [],
+          error: null
+        })
       })
     })
 

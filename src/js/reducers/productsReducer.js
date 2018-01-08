@@ -1,5 +1,8 @@
 const initialState = {
-  productList: [],
+  productList: {
+    sports: [],
+    news: []
+  },
   basket: [],
   error: null
 }
@@ -7,9 +10,14 @@ const initialState = {
 export default function reducer (state = initialState, action) {
   switch (action.type) {
     case 'FETCH_PRODUCTS_FULFILLED': {
+      const products = {
+        sports: action.payload.data.products.filter(product => product.category === 'sports'),
+        news: action.payload.data.products.filter(product => product.category === 'news')
+      }
+
       return {
         ...state,
-        productList: action.payload.data.products
+        productList: products
       }
     }
     case 'FETCH_PRODUCTS_REJECTED': {
@@ -19,7 +27,7 @@ export default function reducer (state = initialState, action) {
       }
     }
     case 'ADD_PRODUCT': {
-      const selectedProduct = state.productList.find(product =>
+      const selectedProduct = state.productList[action.payload.category].find(product =>
         product.id === action.payload.productId)
 
       return {

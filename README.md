@@ -14,3 +14,4 @@
 ##### Product Selection Client
 - Behavioural tests using CasperJS would automate testing of user journeys
 - Better error handling if request to Catalogue Service fails
+- Dynamically generate product lists based off category, rather than having hard-coded News and Sports lists

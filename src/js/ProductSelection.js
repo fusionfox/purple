@@ -6,9 +6,9 @@ import Basket from './components/Basket'
 
 import { fetchProducts, addProduct, removeProduct } from './actions/productsActions'
 
-const handleProductSelection = dispatch => e => {
+const handleProductSelection = (dispatch, category) => e => {
   if (e.target.checked) {
-    dispatch(addProduct(e.target.value))
+    dispatch(addProduct(e.target.value, category))
   } else {
     dispatch(removeProduct(e.target.value))
   }
@@ -31,9 +31,14 @@ class ProductSelection extends Component {
         </header>
         <div className='ProductSelection-body'>
           <ProductList
-            title='HelloWorld'
-            products={this.props.products}
-            handleProductSelection={handleProductSelection(this.props.dispatch)}
+            title='Sports'
+            products={this.props.products.sports}
+            handleProductSelection={handleProductSelection(this.props.dispatch, 'sports')}
+          />
+          <ProductList
+            title='News'
+            products={this.props.products.news}
+            handleProductSelection={handleProductSelection(this.props.dispatch, 'news')}
           />
           <Basket
             products={this.props.basket}

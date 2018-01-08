@@ -7,11 +7,12 @@ export function fetchProducts () {
   }
 }
 
-export function addProduct (productId) {
+export function addProduct (productId, category) {
   return {
     type: 'ADD_PRODUCT',
     payload: {
-      productId
+      productId,
+      category
     }
   }
 }
