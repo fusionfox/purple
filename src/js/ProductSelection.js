@@ -5,6 +5,7 @@ import ProductList from './components/ProductList'
 import Basket from './components/Basket'
 
 import { fetchProducts, addProduct, removeProduct } from './actions/productsActions'
+import { getLocationID } from './actions/userActions'
 
 const handleProductSelection = (dispatch, category) => e => {
   if (e.target.checked) {
@@ -20,7 +21,8 @@ const handleCheckout = () => {
 
 class ProductSelection extends Component {
   componentDidMount () {
-    this.props.dispatch(fetchProducts(this.props.locationID))
+    this.props.dispatch(getLocationID(this.props.customerID))
+      .then(locationID => this.props.dispatch(fetchProducts(locationID.value)))
   }
 
   render () {
@@ -51,7 +53,7 @@ class ProductSelection extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  locationID: state.user.locationID,
+  customerID: state.user.customerID,
   products: state.products.productList,
   basket: state.products.basket
 })
