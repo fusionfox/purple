@@ -3,7 +3,28 @@
 > As a **customer**, I want to select the **products** that are available to me, based on the **location** of my home.
 
 ### Build & Run
-`//TODO`
+
+##### Catalogue Service
+
+First start up the Catalogue Service.
+
+1. Change into the `catalogue-service` directory
+2. Install dependencies with `npm install`
+3. Start the service with `npm start`
+
+##### Product Selection Client
+
+In another terminal, start the client.
+
+1. Change into the project root directory
+2. Install dependencies with `npm install`
+3. Start the client with `npm start`
+4. If it does not open automatically, open [http://localhost:3000](http://localhost:3000/) in a web browser
+5. Change location by editing the `customerID` cookie
+
+### Testing
+
+Simply run `npm test` in either the project root directory or in the `catalogue-service` directory.
 
 ### Future Improvements
 ##### Catalogue Service
