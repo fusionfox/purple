@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-export function fetchProducts () {
+export function fetchProducts (locationID) {
   return {
     type: 'FETCH_PRODUCTS',
-    payload: axios.get('/products')
+    payload: axios.get(`/products?locationID=${locationID}`)
   }
 }
 

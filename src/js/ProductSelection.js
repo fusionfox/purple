@@ -20,7 +20,7 @@ const handleCheckout = () => {
 
 class ProductSelection extends Component {
   componentDidMount () {
-    this.props.dispatch(fetchProducts())
+    this.props.dispatch(fetchProducts(this.props.locationID))
   }
 
   render () {
@@ -51,6 +51,7 @@ class ProductSelection extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  locationID: state.user.locationID,
   products: state.products.productList,
   basket: state.products.basket
 })
