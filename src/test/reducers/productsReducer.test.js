@@ -64,4 +64,38 @@ describe('productsReducer', () => {
       expect(productsReducer(stateWithItemsInBasket, action)).toEqual(stateWithItemsInBasket)
     })
   })
+
+  describe('When fetching data', () => {
+    const initialState = {
+      productList: [],
+      basket: [],
+      error: null
+    }
+
+    it('Request is successful', () => {
+      const action = {
+        type: 'FETCH_PRODUCTS_FULFILLED',
+        payload: {data: {products: [{id: 'pr1', name: 'Number One'}]}}
+      }
+
+      expect(productsReducer(initialState, action)).toEqual({
+        productList: [{id: 'pr1', name: 'Number One'}],
+        basket: [],
+        error: null
+      })
+    })
+
+    it('Request is unsuccessful', () => {
+      const action = {
+        type: 'FETCH_PRODUCTS_REJECTED',
+        payload: 'error'
+      }
+
+      expect(productsReducer(initialState, action)).toEqual({
+        productList: [],
+        basket: [],
+        error: 'error'
+      })
+    })
+  })
 })

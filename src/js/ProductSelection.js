@@ -4,7 +4,7 @@ import '../css/ProductSelection.css'
 import ProductList from './components/ProductList'
 import Basket from './components/Basket'
 
-import { addProduct, removeProduct } from './actions/productsActions'
+import { fetchProducts, addProduct, removeProduct } from './actions/productsActions'
 
 const handleProductSelection = dispatch => e => {
   if (e.target.checked) {
@@ -19,6 +19,10 @@ const handleCheckout = () => {
 }
 
 class ProductSelection extends Component {
+  componentDidMount () {
+    this.props.dispatch(fetchProducts())
+  }
+
   render () {
     return (
       <div className='ProductSelection'>

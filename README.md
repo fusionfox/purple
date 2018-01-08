@@ -13,3 +13,4 @@
 
 ##### Product Selection Client
 - Behavioural tests using CasperJS would automate testing of user journeys
+- Better error handling if request to Catalogue Service fails

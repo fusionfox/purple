@@ -1,13 +1,23 @@
 const initialState = {
-  productList: [
-    {id: 'pr1', name: 'Number One'},
-    {id: 'pr2', name: 'Number Two'}
-  ],
-  basket: []
+  productList: [],
+  basket: [],
+  error: null
 }
 
 export default function reducer (state = initialState, action) {
   switch (action.type) {
+    case 'FETCH_PRODUCTS_FULFILLED': {
+      return {
+        ...state,
+        productList: action.payload.data.products
+      }
+    }
+    case 'FETCH_PRODUCTS_REJECTED': {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
     case 'ADD_PRODUCT': {
       const selectedProduct = state.productList.find(product =>
         product.id === action.payload.productId)
