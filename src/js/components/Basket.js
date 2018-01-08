@@ -2,7 +2,7 @@ import React from 'react'
 import '../../css/components/Basket.css'
 
 const Basket = props => {
-  let products = props.products.map(product => {
+  const products = props.products.map(product => {
     return <li key={product.id} className='Basket-product'>{product.name}</li>
   })
 

@@ -3,7 +3,7 @@ import '../../css/components/ProductList.css'
 import SelectableItem from './SelectableItem'
 
 const ProductList = props => {
-  let products = props.products.map(product => {
+  const products = props.products.map(product => {
     return <li key={product.id} className='ProductList-product'>
       <SelectableItem
         name={product.name}
